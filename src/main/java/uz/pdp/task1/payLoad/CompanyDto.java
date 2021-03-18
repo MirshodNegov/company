@@ -14,7 +14,7 @@ public class CompanyDto {
     @NotNull(message = "Corp name can't be NULL")
     private String corpName;
     @NotNull(message = "Director name can't be NULL")
-    private Integer directorName;
+    private String directorName;
     @NotNull(message = "Address can't be NULL")
-    private Address address;    
+    private Integer addressId;
 }

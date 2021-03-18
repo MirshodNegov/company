@@ -46,10 +46,10 @@ public class CompanyService {
         Company company=new Company();
         company.setCorpName(companyDto.getCorpName());
         company.setDirectorName(companyDto.getDirectorName());
-        Optional<Address> optionalAddress = addressRepository.findById(companyDto.getAddressId());
-        if (!optionalAddress.isPresent())
-            return new ApiResponse("Address not found !",false);
-        Address address = optionalAddress.get();
+        Address address=new Address();
+        address.setStreet(companyDto.getStreet());
+        address.setHomeNumber(companyDto.getHomeNumber());
+        addressRepository.save(address);
         company.setAddress(address);
         companyRepository.save(company);
         return new ApiResponse("Company saved !",true);
@@ -65,10 +65,10 @@ public class CompanyService {
         Company company = optionalCompany.get();
         company.setCorpName(companyDto.getCorpName());
         company.setDirectorName(companyDto.getDirectorName());
-        Optional<Address> optionalAddress = addressRepository.findById(companyDto.getAddressId());
-        if (!optionalAddress.isPresent())
-            return new ApiResponse("Address not found !",false);
-        Address address = optionalAddress.get();
+        Address address=new Address();
+        address.setStreet(companyDto.getStreet());
+        address.setHomeNumber(companyDto.getHomeNumber());
+        addressRepository.save(address);
         company.setAddress(address);
         companyRepository.save(company);
         return new ApiResponse("Company edited !",true);
